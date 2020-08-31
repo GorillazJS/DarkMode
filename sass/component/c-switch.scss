@@ -1,0 +1,94 @@
+$switch-bg: #95989a;
+$switch-border-radius: calc(2.375rem * 0.8);
+$switch-checked-bg: #76b82b;
+$switch-disabled-bg: #c5c5c7;
+$switch-disabled-color: #95989a;
+$switch-focus-box-shadow: 0 0 0 0.2rem rgba(#76b82b, 0.25);
+$switch-height: calc(2.375rem * 0.8);
+$switch-thumb-bg: #ffffff;
+$switch-thumb-border-radius: 50%;
+$switch-thumb-padding: 2px;
+$switch-transition: 0.2s all;
+
+.switch {
+  font-size: 1rem;
+  position: relative;
+
+  input {
+    background: none;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    + label {
+      border-radius: $switch-border-radius;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      height: $switch-height;
+      line-height: $switch-height;
+      min-width: calc(#{$switch-height} * 2);
+      outline: none;
+      position: relative;
+      text-indent: calc(calc(#{$switch-height} * 2) + 0.75rem);
+      text-transform: capitalize;
+      user-select: none;
+      vertical-align: middle;
+    }
+
+    + label::before,
+    + label::after {
+      bottom: 0;
+      display: block;
+      content: "";
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: calc(#{$switch-height} * 2);
+    }
+
+    + label::before {
+      background-color: $switch-bg;
+      border-radius: $switch-border-radius;
+      right: 0;
+      transition: $switch-transition;
+    }
+
+    + label::after {
+      background-color: $switch-thumb-bg;
+      border-radius: $switch-thumb-border-radius;
+      height: calc(#{$switch-height} - calc(#{$switch-thumb-padding} * 2));
+      left: $switch-thumb-padding;
+      top: $switch-thumb-padding;
+      transition: $switch-transition;
+      width: calc(#{$switch-height} - calc(#{$switch-thumb-padding} * 2));
+    }
+
+    &:checked + label::before {
+      background-color: $switch-checked-bg;
+    }
+
+    &:checked + label::after {
+      margin-left: $switch-height;
+    }
+
+    &:focus + label::before {
+      box-shadow: $switch-focus-box-shadow;
+      outline: none;
+    }
+
+    &:disabled + label {
+      cursor: not-allowed;
+      color: $switch-disabled-color;
+    }
+
+    &:disabled + label::before {
+      background-color: $switch-disabled-bg;
+    }
+  }
+}
