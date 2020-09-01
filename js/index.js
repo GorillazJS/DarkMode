@@ -9,11 +9,11 @@ $checkbox.addEventListener("change", () => {
 
 let darkMode = localStorage.getItem("darkMode");
 
-const darkModeToggle = document.querySelector("#switch-notification");
+const darkModeToggle = document.querySelector("#c-switch-notification");
 
 const enableDarkMode = () => {
   // checkbox
-  document.getElementById("switch-notification").checked = true;
+  document.getElementById("c-switch-notification").checked = true;
   // 1. Add the class to the body
   const $html = document.querySelector("html");
   const $checkbox = document.querySelector(".switch");
@@ -24,7 +24,7 @@ const enableDarkMode = () => {
 
 const disableDarkMode = () => {
   //checkbox
-  document.getElementById("switch-notification").checked = false;
+  document.getElementById("c-switch-notification").checked = false;
 
   // 1. Remove the class from the body
   const $html = document.querySelector("html");
